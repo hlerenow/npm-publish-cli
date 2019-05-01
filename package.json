@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --open --hot --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
+    "build:es5": "babel src -d libs",
     "analyse": "npm run build --report",
     "n:publish": "",
     "test": "mocha --recursive \"./test/unit/**/*.js\" --reporter mochawesome --reporter-options reportDir=./testReport/unit",
@@ -13,6 +14,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-stage-3": "^7.0.0",

@@ -1,41 +1,16 @@
+const merge = require('webpack-merge');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const ENV = process.env.NODE_ENV;
 const packager = require(path.resolve(__dirname, '../package.json'));
+const baseConfig = require('./webpack.base');
 
-module.exports = {
-    mode: 'development',
+module.exports = merge(baseConfig, {
     entry: {
-        index: path.resolve(__dirname, '../src/index.js'),
         test: path.resolve(__dirname, '../src/test/index.js')
     },
-    output: {
-        path: path.resolve(__dirname, '../dist-dev'),
-        filename: '[name].js',
-        libraryTarget: 'umd',
-        globalObject: 'this',
-        library: '[name]'
-    },
-    module: {
-        rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader',
-                options: {
-                    // 这里的配置项参数将会被传递到 eslint 的 CLIEngine
-                    formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范
-                }
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            }
-        ]
-    },
+    devtool: 'source-map',
     devServer: {
         historyApiFallback: false,
         noInfo: true,
@@ -58,4 +33,4 @@ module.exports = {
             }
         })
     ]
-};
+});

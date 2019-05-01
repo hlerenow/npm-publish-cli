@@ -10,8 +10,8 @@ module.exports = merge(baseConfig, {
     },
     devtool: 'source-map',
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            minimize: [new UglifyJsPlugin()]
+        new UglifyJsPlugin({
+            sourceMap: true
         })
     ]
 });

@@ -1,8 +1,11 @@
 console.log(process.env);
 
 export default {
-    a: function() {
+    a: async function() {
         console.log('I\'m a');
+        await (new Promise((resolve, reject) => {
+            resolve();
+        }));
     },
     b: function() {
         console.log('I\'m b');

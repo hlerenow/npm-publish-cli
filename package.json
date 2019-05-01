@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --open --hot --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
-    "build:es5": "babel src -d libs",
+    "build:es5": "gulp compile",
     "analyse": "npm run build --report",
     "n:publish": "",
     "test": "mocha --recursive \"./test/unit/**/*.js\" --reporter mochawesome --reporter-options reportDir=./testReport/unit",

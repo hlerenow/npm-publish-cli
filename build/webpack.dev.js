@@ -5,7 +5,7 @@ const baseConfig = require('./webpack.base');
 
 module.exports = merge(baseConfig, {
     entry: {
-        test: path.resolve(__dirname, '../src-static/index.js')
+        test: path.resolve(__dirname, '../srcStatic/index.js')
     },
     devtool: 'source-map',
     devServer: {

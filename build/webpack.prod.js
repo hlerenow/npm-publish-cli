@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
 const baseConfig = require('./webpack.base');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(baseConfig, {
     output: {
@@ -10,7 +11,7 @@ module.exports = merge(baseConfig, {
     devtool: 'source-map',
     plugins: [
         new webpack.LoaderOptionsPlugin({
-            minimize: true
+            minimize: [new UglifyJsPlugin()]
         })
     ]
 });

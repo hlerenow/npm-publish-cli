@@ -3,6 +3,9 @@
   "parserOptions": {
     "parser": "babel-eslint"
   },
+  "plugins": [
+    "mocha"
+  ],
   "env": {
     "browser": true,
     "node": true
@@ -23,6 +26,7 @@
       "error",
       4
     ],
-    "no-return-await": ["off"]
+    "no-return-await": ["off"],
+    "mocha/no-exclusive-tests": "error"
   }
 }

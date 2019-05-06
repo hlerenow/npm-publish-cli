@@ -12,8 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',
         libraryTarget: 'umd',
-        globalObject: 'this',
-        library: '[name]'
+        globalObject: 'this'
     },
     module: {
         rules: [

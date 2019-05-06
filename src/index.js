@@ -1,6 +1,6 @@
 console.log(process.env);
 
-export default {
+const a = {
     a: async function() {
         console.log('I\'m a');
         await (new Promise((resolve, reject) => {
@@ -12,3 +12,9 @@ export default {
     },
     version: process.env._VERSION_
 };
+
+export {
+    a
+};
+
+export default a;

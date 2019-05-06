@@ -1,15 +1,14 @@
-const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
-const packager = require(path.resolve(__dirname, '../package.json'));
+const utils = require('./utils');
+const packager = require(utils.resolve('../package.json'));
+const entries = utils.getEntry(utils.resolve('../src/**/index.js'));
 
 module.exports = {
     mode: 'development',
-    entry: {
-        index: path.resolve(__dirname, '../src/index.js')
-    },
+    entry: entries,
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: utils.resolve('../dist'),
         filename: '[name].js',
         libraryTarget: 'umd',
         globalObject: 'this'

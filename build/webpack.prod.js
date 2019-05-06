@@ -1,12 +1,11 @@
 const merge = require('webpack-merge');
-const webpack = require('webpack');
-const path = require('path');
 const baseConfig = require('./webpack.base');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const utils = require('./utils');
 
 module.exports = merge(baseConfig, {
     output: {
-        path: path.resolve(__dirname, '../dist')
+        path: utils.resolve('../dist')
     },
     devtool: 'source-map',
     plugins: [

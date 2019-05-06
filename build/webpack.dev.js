@@ -1,11 +1,11 @@
 const merge = require('webpack-merge');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base');
+const utils = require('./utils');
 
 module.exports = merge(baseConfig, {
     entry: {
-        test: path.resolve(__dirname, '../srcStatic/index.js')
+        test: utils.resolve('../srcStatic/index.js')
     },
     devtool: 'source-map',
     devServer: {

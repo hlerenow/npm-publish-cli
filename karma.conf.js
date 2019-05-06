@@ -5,7 +5,7 @@ module.exports = function(config) {
     config.set({
         frameworks: ['mocha', 'chai'],
         files: [
-            { pattern: 'test/unit/**/*.test.js', watched: true }
+            { pattern: 'test/unit/**/*.test.js' }
         ],
         webpack: webpack,
         preprocessors: {
@@ -13,10 +13,9 @@ module.exports = function(config) {
         },
         port: 9876,
         colors: true,
+        singleRun: false,
         logLevel: config.LOG_INFO,
-        autoWatch: true,
         browsers: ['Chrome'],
-        captureTimeout: 60000,
         reporters: ['html', 'coverage-istanbul'],
         // any of these options are valid: https://github.com/istanbuljs/istanbuljs/blob/aae256fb8b9a3d19414dcf069c592e88712c32c6/packages/istanbul-api/lib/config.js#L33-L39
         coverageIstanbulReporter: {
@@ -33,16 +32,8 @@ module.exports = function(config) {
             fixWebpackSourcePaths: true,
 
             // Omit files with no statements, no functions and no branches from the report
-            skipFilesWithNoCoverage: true,
+            skipFilesWithNoCoverage: true
 
-            // Most reporters accept additional config options. You can pass these through the `report-config` option
-            'report-config': {
-                // all options available at: https://github.com/istanbuljs/istanbuljs/blob/aae256fb8b9a3d19414dcf069c592e88712c32c6/packages/istanbul-reports/lib/html/index.js#L135-L137
-                html: {
-                    // outputs the report in ./coverage/html
-                    subdir: 'html'
-                }
-            }
         },
         htmlReporter: {
             outputDir: './testReport/unit', // where to put the reports

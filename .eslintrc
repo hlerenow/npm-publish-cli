@@ -8,7 +8,10 @@
     "node": true
   },
   "globals": {
-    "ActiveXObject": false
+    "ActiveXObject": false,
+    "describe": true,
+    "it": true,
+    "expect": true
   },
   "rules":{
     "semi":[

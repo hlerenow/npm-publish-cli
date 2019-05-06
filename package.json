@@ -11,7 +11,7 @@
     "build": "npm run build:umd && npm run build:es5",
     "analyse": "npm run build:umd --report",
     "n:publish": "npm run build && npm publish",
-    "test:unit": "mocha --recursive \"./test/unit/**/*.js\" --reporter mochawesome --reporter-options reportDir=./testReport/unit",
+    "test:unit": "mocha --recursive \"./test/unit/**/*.js\" --reporter mochawesome --reporter-options reportDir=./testReport/unit --require @babel/register",
     "test:e2e": "nightwatch --reporter ./nightwatch-reporter.js"
   },
   "dependencies": {
@@ -23,8 +23,10 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-stage-3": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-module-resolver": "^3.2.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "chromedriver": "^74.0.0",

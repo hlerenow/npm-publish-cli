@@ -17,6 +17,13 @@
         "regenerator": true,
         "useESModules": false
       }
-    ]
+    ],
+    ["module-resolver", {
+      "baseUrl": ".",
+      "alias": {
+        "src": ["./src"],
+        "test": "./test"
+      }
+    }]
   ]
 }

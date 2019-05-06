@@ -1,9 +1,16 @@
+const webpack = require('./build/webpack.dev');
+delete webpack.entry;
+delete webpack.output;
 module.exports = function(config) {
     config.set({
         frameworks: ['mocha', 'chai'],
         files: [
             { pattern: 'test/unit/**/*.test.js', watched: true }
         ],
+        webpack: webpack,
+        preprocessors: {
+            'test/unit/**/*.test.js': ['webpack']
+        },
         reporters: ['progress'],
         port: 9876,
         colors: true,
@@ -26,7 +33,5 @@ module.exports = function(config) {
         // preprocessors: {
         //     'test/unit/*.test.js': [ 'webpack' ]
         // },
-        // webpack: {
-        // }
     });
 };

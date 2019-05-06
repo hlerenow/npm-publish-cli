@@ -1,5 +1,3 @@
-console.log(process.env);
-
 const a = {
     a: async function() {
         console.log('I\'m a');
@@ -9,6 +7,7 @@ const a = {
     },
     b: function() {
         console.log('I\'m b');
+        return 1;
     },
     version: process.env._VERSION_
 };

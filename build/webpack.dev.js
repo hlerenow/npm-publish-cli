@@ -21,7 +21,8 @@ module.exports = merge(baseConfig, {
         new HtmlWebpackPlugin({
             // Also generate a test.html
             filename: 'index.html',
-            template: 'template/static.html'
+            template: 'template/static.html',
+            chunks: ['test', 'index']
         })
     ]
 });

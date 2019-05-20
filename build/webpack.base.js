@@ -3,6 +3,13 @@ const webpack = require('webpack');
 const utils = require('./utils');
 const packager = require(utils.resolve('../package.json'));
 const entries = utils.getEntry(utils.resolve('../src/**/index.js'));
+const chalk = require('chalk');
+const Log = console.log;
+
+Log(chalk.hex('#3aca1b').bold('[入口文件]:'));
+Object.keys(entries).forEach(key => {
+    Log(`    ${chalk.red(key)}: ${chalk.green(entries[key])}`);
+});
 
 module.exports = {
     mode: 'development',

@@ -1,6 +1,5 @@
 import _regeneratorRuntime from "@babel/runtime/regenerator";
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
-console.log(process.env);
 var a = {
   a: function () {
     var _a = _asyncToGenerator(
@@ -32,8 +31,9 @@ var a = {
   }(),
   b: function b() {
     console.log('I\'m b');
+    return 1;
   },
-  version: '1.0.0'
+  version: '1.0.2'
 };
 export { a };
 export default a;

@@ -2,7 +2,7 @@ console.log(process.env);
 
 const a = {
     a: async function() {
-        console.log('I\'m a');
+        console.log('I\'m a qwe ');
         await (new Promise((resolve, reject) => {
             resolve();
         }));

@@ -16,7 +16,6 @@ module.exports = {
                 entries[`${basename}/index`] = entry;
             }
         });
-        console.log(entries);
         return entries;
     }
 };

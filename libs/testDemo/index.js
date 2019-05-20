@@ -33,7 +33,7 @@ var a = {
   b: function b() {
     console.log('I\'m b');
   },
-  version: '1.0.0'
+  version: '1.0.2'
 };
 export { a };
 export default a;

@@ -1,0 +1,31 @@
+{
+  "name": "npm-publish-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "bin/npm-publish-cli.js",
+  "scripts": {
+    "dev": "node ./bin/npm-publish-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlerenow/npm-publish-cli.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hlerenow/npm-publish-cli/issues"
+  },
+  "homepage": "https://github.com/hlerenow/npm-publish-cli#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.3.1",
+    "ora": "^3.4.0"
+  },
+  "devDependencies": {
+    "chain": "^0.1.3",
+    "eslint": "^5.16.0",
+    "husky": "^2.3.0",
+    "mocha": "^6.1.4"
+  }
+}

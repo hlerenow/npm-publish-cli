@@ -5,7 +5,9 @@
   "main": "index.js",
   "bin": "bin/npm-publish-cli.js",
   "scripts": {
-    "dev": "node ./bin/npm-publish-cli.js"
+    "dev": "node ./bin/npm-publish-cli.js",
+    "lint": "eslint --ext .js bin",
+    "lint:fix": "eslint --fix --ext .js bin"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   "devDependencies": {
     "chain": "^0.1.3",
     "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.0.1",
     "husky": "^2.3.0",
     "mocha": "^6.1.4"
   }

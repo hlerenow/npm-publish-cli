@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const InputProgram = require('./input')
 const CreateProject = require('./createProject')
 

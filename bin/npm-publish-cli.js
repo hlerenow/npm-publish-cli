@@ -15,10 +15,9 @@ shell.config.sync = true;
     }
 //
     const nowPath = shell.exec('pwd').stdout.replace('\n', '');
-
+    const prjDir = path.resolve(nowPath, `${args[1]}`);
 // 仓库下载
-    await fetchRemoteTemplate('hlerenow/npm-package-template-browser', path.resolve(nowPath, `${args[1]}`))
-
+    await fetchRemoteTemplate('hlerenow/npm-package-template-browser', prjDir)
     const packageJsonPath = path.resolve(nowPath, `${args[1]}/package.json`)
     let packageJson = require(packageJsonPath);
 

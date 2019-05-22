@@ -1,18 +1,17 @@
-const { execSync } = require('child_process')
-const path = require('path')
 class CreateProject {
   constructor (props) {
     this.params = props
     if (props.packageType === 'Node') {
-      this.packageJson = require('../prj-template/node/package.json')
+      this.createNodeProject()
     } else {
-      this.packageJson = require('../prj-template/browser/package.json')
+      this.createBrowserProject()
     }
 
     this.copyProject()
   }
 
   createNodeProject () {
+    // la
   }
 
   createBrowserProject () {
@@ -34,18 +33,6 @@ class CreateProject {
     }
   }
 
-  copyProject () {
-    const { packageJson, params } = this
-    const templatePath = path.resolve(__dirname, '../prj-template')
-    console.log(templatePath)
-    const res = execSync(`mkdir ${params.packageName}`)
-    if (res.indexOf('File exists')) {
-      console.log('文件夹已存在')
-    }
-    execSync(``)
-
-    console.log(execSync(`cd ${params.packageName} && cp -r ${templatePath}/browser/ ./`))
-  }
 }
 
-module.exports = exports = CreateProject
+module.exports = CreateProject

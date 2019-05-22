@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "bin/npm-publish-cli.js",
+  "bin": {
+    "npc": "bin/npm-publish-cli.js"
+  },
   "scripts": {
     "dev": "node ./bin/npm-publish-cli.js",
     "lint": "eslint --ext .js bin",
@@ -21,8 +23,20 @@
   "homepage": "https://github.com/hlerenow/npm-publish-cli#readme",
   "dependencies": {
     "chalk": "^2.4.2",
+    "download-git-repo": "^1.1.0",
+    "fs-extra": "^8.0.1",
     "inquirer": "^6.3.1",
-    "ora": "^3.4.0"
+    "ora": "^3.4.0",
+    "semver": "^6.0.0",
+    "shelljs": "^0.8.3",
+    "slash": "^3.0.0",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
   },
   "devDependencies": {
     "chain": "^0.1.3",

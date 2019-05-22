@@ -42,7 +42,7 @@ const questions = [
 
 ]
 
-module.exports = exports = function (cb) {
+module.exports =  function (cb) {
   inquirer.prompt(questions).then(answers => {
     cb(answers)
   })

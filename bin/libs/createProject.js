@@ -1,7 +1,8 @@
 class CreateProject {
-  constructor (props) {
-    this.params = props
-    if (props.packageType === 'Node') {
+  constructor(params, packageJson) {
+    this.params = params;
+    this.packageJson = packageJson;
+    if (params.packageType === 'Node') {
       this.createNodeProject()
     } else {
       this.createBrowserProject()
@@ -11,7 +12,7 @@ class CreateProject {
   }
 
   createNodeProject () {
-    // la
+    // TO DO
   }
 
   createBrowserProject () {
@@ -24,7 +25,17 @@ class CreateProject {
       this.packageJson.scripts.test = 'npm run test:e2e'
 
       // 删除依赖
-      let deps = ['karma-chai', 'karma', 'karma-chrome-launcher', 'karma-coverage-istanbul-reporter', 'karma-html-reporter', 'karma-mocha', 'karma-webpack', 'mocha', 'chain']
+      let deps = [
+        'karma-chai',
+        'karma',
+        'karma-chrome-launcher',
+        'karma-coverage-istanbul-reporter',
+        'karma-html-reporter',
+        'karma-mocha',
+        'karma-webpack',
+        'mocha',
+        'chain'
+      ]
       for (let i = 0; i < deps.length; i++) {
         delete this.packageJson.devDependencies[deps[i]]
       }

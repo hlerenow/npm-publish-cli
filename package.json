@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "npc": "bin/npm-publish-cli.js"
+    "npc": "bin/index.js"
   },
   "scripts": {
     "dev": "node ./bin/npm-publish-cli.js",

@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "it": true,
+    "expect": true
+  },
+  "rules":{
+    "no-console": "off",
+  }
+}

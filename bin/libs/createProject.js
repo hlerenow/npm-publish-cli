@@ -1,5 +1,9 @@
+const fs = require('fs-extra');
+const path = require('path');
+
 class CreateProject {
-  constructor(params, packageJson) {
+  constructor(params, packageJson, prjDir) {
+    this.prjDir = prjDir;
     this.params = params;
     this.packageJson = JSON.parse(JSON.stringify(packageJson));
     if (params.packageType === 'Node') {
@@ -27,7 +31,21 @@ class CreateProject {
 
     if (testWays.indexOf('unit') < 0 && testWays.indexOf('e2e') < 0) {
       delete pkgJson.scripts.test
+      // 删除所有的测试文件夹
+      let delFiles = [
+        'testReport',
+        'test'
+      ]
+      delFiles.map((pth) => {
+        // 删除对应文件夹
+        let filePath = path.resolve(this.prjDir, pth)
+        fs.remove(filePath, err => {
+          if (err) return console.error(err)
+        })
+      })
+
     }
+
 
     return pkgJson;
   }
@@ -54,7 +72,21 @@ class CreateProject {
       let devDependencies = this.packageJson.devDependencies;
       delete devDependencies[deps[i]]
     }
-    // 删除对应文件夹
+
+    let delFiles = [
+      'karma.conf.js',
+      'testReport/unit',
+      'test/unit'
+    ]
+
+    delFiles.map((pth) => {
+      // 删除对应文件夹
+      let filePath = path.resolve(this.prjDir, pth)
+      fs.remove(filePath, err => {
+        if (err) return console.error(err)
+      })
+    })
+
     return this.packageJson
   }
 
@@ -73,6 +105,20 @@ class CreateProject {
       delete devDependencies[deps[i]]
     }
     // 删除对应文件夹
+    let delFiles = [
+      'nightwatch.json',
+      'nightwatch-reporter.js',
+      'testReport/e2e',
+      'test/e2e'
+    ]
+
+    delFiles.map((pth) => {
+      // 删除对应文件夹
+      let filePath = path.resolve(this.prjDir, pth)
+      fs.remove(filePath, err => {
+        if (err) return console.error(err)
+      })
+    })
     return this.packageJson
   }
 

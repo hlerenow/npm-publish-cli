@@ -44,7 +44,7 @@ shell.config.sync = true;
     }
     const packageJsonPath = path.resolve(nowPath, `${args[1]}/package.json`)
     let packageJson = require(packageJsonPath);
-    packageJson = new CreateProject(params, packageJson)
+    packageJson = new CreateProject(params, packageJson, prjDir)
     console.log(JSON.stringify(packageJson, null, 2))
     shell.exec(`echo '${JSON.stringify(packageJson, null, 2)}' > ${packageJsonPath}`);
 })();

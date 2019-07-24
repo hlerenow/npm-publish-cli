@@ -8,6 +8,7 @@ const fetchRemoteTemplate = require('./libs/downloadGitRep');
 const args = process.argv.slice(2)
 const chalk = require('chalk');
 const log = console.log;
+const ora = require('ora');
 
 shell.config.sync = true;
 
@@ -31,17 +32,19 @@ shell.config.sync = true;
     }
 
     // 仓库下载
-    log(chalk.yellow(gitUrl, prjDir));
+    const spinnerDownload = ora('Downloading repo...').start();
+    spinnerDownload.color = 'cyan';
+    spinnerDownload.indent = 2;
     try {
         await fetchRemoteTemplate(gitUrl, prjDir)
+        spinnerDownload.succeed()
     } catch (e) {
         console.log(e)
         return;
     }
     const packageJsonPath = path.resolve(nowPath, `${args[1]}/package.json`)
     let packageJson = require(packageJsonPath);
-    console.log(JSON.stringify(packageJson, null, 2))
     packageJson = new CreateProject(params, packageJson)
-
+    console.log(JSON.stringify(packageJson, null, 2))
     shell.exec(`echo '${JSON.stringify(packageJson, null, 2)}' > ${packageJsonPath}`);
 })();

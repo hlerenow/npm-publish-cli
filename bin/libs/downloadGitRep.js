@@ -1,6 +1,6 @@
 const download = require('download-git-repo');
 module.exports = async function fetchRemoteTemplate (name, regPath) {
-    await new Promise((resolve, reject) => {
+    let res = await new Promise((resolve, reject) => {
         download(name, regPath, err => {
             if (err) {
                 console.log(err);
@@ -9,4 +9,5 @@ module.exports = async function fetchRemoteTemplate (name, regPath) {
             resolve()
         })
     })
+    return res;
 }

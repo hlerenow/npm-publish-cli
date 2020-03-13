@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "npc": "bin/index.js"
+    "npc": "bin/index.js",
+    "commit": "git-cz"
   },
   "scripts": {
-    "dev": "node ./bin/npm-publish-cli.js",
+    "dev": "node ./bin/index.js",
     "lint": "eslint --ext .js bin",
     "lint:fix": "eslint --fix --ext .js bin"
   },
@@ -41,9 +42,16 @@
   },
   "devDependencies": {
     "chain": "^0.1.3",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-node": "^9.0.1",
     "husky": "^2.3.0",
     "mocha": "^6.1.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

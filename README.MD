@@ -1,6 +1,6 @@
-## npm-publish-cli
+# npm-publish-cli
 
-> 创建一个npm发布包工程骨架
+Create a npm package develop project.
 
 ## Install
 
@@ -10,6 +10,6 @@ npm install npm-publish-cli -g
 
 ## Usage
 
-```
+```shell
 npc create hello
 ```

@@ -1,11 +1,10 @@
 {
   "name": "npm-publish-cli",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "A tool help to publish npm package",
   "main": "index.js",
   "bin": {
-    "npc": "bin/index.js",
-    "commit": "git-cz"
+    "npc": "bin/index.js"
   },
   "scripts": {
     "dev": "node ./bin/index.js",

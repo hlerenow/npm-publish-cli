@@ -20,7 +20,8 @@ class CreateProject {
 
   createBrowserProject () {
     const { params } = this
-    const { testWays } = params
+    const { testWays, version } = params
+    pkgJson.version = version
     let pkgJson = {};
     if (testWays.indexOf('unit') < 0) {
       pkgJson = this.deleteUnit()
@@ -44,7 +45,6 @@ class CreateProject {
           if (err) return console.error(err)
         })
       })
-
     }
 
 

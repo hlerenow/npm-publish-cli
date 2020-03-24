@@ -19,7 +19,8 @@ shell.config.sync = true;
     }
 
     const nowPath = shell.exec('pwd').stdout.replace('\n', '');
-    const prjDir = path.resolve(nowPath, `${args[1]}`);
+    const prjDir = path.resolve(nowPath, args[0] || './');
+    console.log("prjDir", prjDir)
     const params = await InputProgram();
     log(chalk.green(JSON.stringify(params, null, 2)));
 
@@ -42,7 +43,7 @@ shell.config.sync = true;
         console.log(e)
         return;
     }
-    const packageJsonPath = path.resolve(nowPath, `${args[1]}/package.json`)
+    const packageJsonPath = path.resolve(prjDir, `./package.json`)
     let packageJson = require(packageJsonPath);
     packageJson = new CreateProject(params, packageJson, prjDir)
     console.log(JSON.stringify(packageJson, null, 2))
